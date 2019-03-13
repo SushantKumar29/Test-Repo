@@ -1,0 +1,6 @@
+<div class="field" style="width: 50%;">
+    <div class="control">
+      <%= f.label :Teachers, class: 'label' %>
+      <%= f.collection_select :id, Teacher.order(:name),:id,:name, include_blank: false, class: 'input', multiple: true %>
+    </div>
+  </div>

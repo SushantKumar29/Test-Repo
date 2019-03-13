@@ -1,0 +1,11 @@
+  <%= form_for student, url: {action: "assign" } do |f| %>
+
+  <div class="field" style="width: 50%;">
+    <div class="control">
+      <%= f.label :Teachers, class: 'label' %>
+      <%= f.collection_select :id, Teacher.order(:name),:id,:name, {}, class: 'select is-medium', multiple: false %>
+    </div>
+  </div>
+  	<%= f.submit :Save, class: "button is-primary" %>
+  <% end %>
+</div>

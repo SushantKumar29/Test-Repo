@@ -1,0 +1,7 @@
+<%= form_for ([imageable, Picture.new]) do |f| %>
+	<div class="form-group">
+		<%= f.file_field :picture, class: 'form-control' %>	
+	</div>
+	<%=  f.submit class: 'btn btn-primary' %>
+
+<% end %>

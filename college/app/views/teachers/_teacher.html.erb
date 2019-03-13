@@ -1,0 +1,17 @@
+<div class="box" style="width: 60%;">
+	<article class="media">
+		<div class="media-content">
+			<div class="content">
+				<%= teacher.name  %>
+				
+			</div>
+		</div>
+		<div>
+			<% if user_signed_in? %>
+			<%= link_to 'Un-Assign', { controller: 'students', action: 'unassign', teacher: teacher.id}, class: "button is-danger", data: { confirm: "Are you sure?"}  %>
+		<% end %>	
+		</div>
+		
+	</article>
+</div>
+

@@ -1,0 +1,26 @@
+<% content_for :page_title, "Teachers" %>
+
+<section class="section">
+  <div class="container" style="width: 60%;">
+    <span style="margin-left: 2%; font-size: 25px;font-weight: bold;">Teacher List</span>
+    <% teachers.each do |teacher| %>
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">
+              <%= link_to teacher.name, teacher %>
+            </p>
+          </div>
+        </div>
+        <div class="content">
+          <%= %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+    <div style="margin-top: 2%;">
+      <%= will_paginate teachers, renderer: BulmaPagination::Rails  %>  
+    </div>
+  </div>
+</section>

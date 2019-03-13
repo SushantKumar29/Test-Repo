@@ -1,0 +1,59 @@
+<% content_for :page_title %>
+
+<section class="section">
+	<div class="container" style="width: 60%;">
+		<nav class="level">
+			<div class="level-left">
+				<span style="font-weight: bold; font-size: 30px;"><%= teacher.name %></span>
+			</div>
+		
+			<div class="level-right">
+				<p class="level-item">
+					<%= link_to "Edit",edit_teacher_path(teacher),class: "button" %>
+
+				</p>
+				<p class="level-item">
+					<%= link_to 'Delete', teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?"}, class: "button is-danger " %>
+				</p>
+			</div>
+			
+
+		</nav>
+		<hr />
+		<nav class="level">
+			<div class="content" style="float: left;">
+				<p><h5>Name :</h5><%= teacher.name %></p>
+				<p><h5>Description :</h5><%= raw teacher.description %></p>
+			</div>
+
+			<div style="float: right; margin: 2%; ">
+				<% teacher.pictures.each do |image| %>
+				<%= image_tag image.name, height: '200px', width: '200px' %>
+				<% end %>
+			</div>
+		
+		</nav>
+			<hr />
+		
+		<nav class="level">
+			<!-- <span style="font-weight: bold; font-size: 20px;">Associated Teachers</span> -->
+			<div class="content"></div>
+			<section class="section">
+				<div class="container">
+					<h5 class="subtitle is-4">Associated Students</h5>
+					<h2 class="subtitle is-5">
+						<strong><%= teacher.students.count %></strong> Students
+					</h2>
+					<%= render teacher.students, teacher: teacher %>
+				</div>
+			</section>
+		</nav>
+		
+</section>
+
+
+
+
+
+
+

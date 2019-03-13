@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="font-family: times new roman; ">
+	<section class="hero is-warning is-small">
+		<div class="hero-head">
+			<nav class="navbar">
+				<div class="container">
+					
+						<div class="navbar-brand">
+							<%= link_to 'All Student Records', students_path, class:"navbar-item" %>
+							<%= link_to 'All Teacher Records', teachers_path, class:"navbar-item" %>
+						</div>
+
+						<% if user_signed_in? %>
+							<%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"navbar-item" %>
+							
+						<% else %>
+							<%= link_to 'Sign up', new_user_registration_path, class:"navbar-item" %>
+							<%= link_to 'Login', new_user_session_path, class:"navbar-item" %>
+
+
+						<% end %>
+					
+					<div id="navbarMenuHeroA" class="navbar-menu">
+						<div class="navbar-end">
+							
+							<%= link_to "Create New Student Record", new_student_path, class:"navbar-item" %>
+							<%= link_to "Create New Teacher Record", new_teacher_path, class:"navbar-item" %>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<h1 class="title">
+					<%= yield :page_title %>
+				</h1>
+				
+			</div>
+		</div>
+		<div class="hero-foot">
+		    <nav class="level">
+			  <div class="level-left" style="width: 50%; margin-left: 5%; ">
+			  	<nav class="tabs">
+		      <div class="container">
+		        <ul>
+		          <li class="is-active"><a>Home</a></li>
+		          <li><a>About us</a></li>
+		          <li><a>Contact</a></li>
+		          
+		        </ul>
+		      </div>
+		    </nav>
+			  </div>
+			  <div class="level-right">
+			    <div class="level-item">
+			      <div class="field has-addons">
+			        <p class="control">
+			          <input class="input" type="text" placeholder="Find a Record" style="margin: 10px;">
+			        </p>
+			        <p class="control">
+			          <button class="button" style="margin: 10px;">
+			            Search
+			          </button>
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			</nav>
+  		</div>
+	</section>
+<div class="clear-fix"><br></div>
+	<section>
+		<div class="tile is-ancestor" style=" width: 20%; height: auto; float: left; margin-left: 0%;">
+		  <div class="tile is-parent">
+		    <article class="tile is-child notification is-info">
+		      <div class="content">
+		        <span class="title" style="font-size: 17px; font-variant: small-caps;">NAVIGATION MENU</span>
+		        <p class="subtitle"></p>
+		        <div class="content">
+		        </div>
+		      </div>
+		    </article>
+		  </div>
+		</div>
+
+		<div class="clearfix"></div>
+		<div>
+			<p class="notice" style="color: green; margin-left: 40% ;"><%= notice %></p>
+	   		<p class="alert" style="color: red; margin-left: 40%;"><%= alert %></p>
+	   	</div>
+	   	<div>
+
+	   		<%= yield %>	
+	   	</div>
+	   	
+	</section>
+
+	
+	<!-- <div style="color: green; text-align: center;">
+		<% flash.each do |key, value| %>
+			<p><%= value %></p>
+		<% end %>	
+	</div> -->
+
+	
+	
+
+
+
+</body>
+</html>

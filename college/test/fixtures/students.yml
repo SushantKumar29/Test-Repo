@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration_number: 1
+  name: MyString
+  branch: MyString
+
+two:
+  registration_number: 1
+  name: MyString
+  branch: MyString
