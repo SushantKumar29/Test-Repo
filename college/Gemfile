@@ -76,6 +76,6 @@ group :development do
 
 
 	# Handle errors better looking
-gem 'better_errors', '~> 2.5'
+gem 'better_errors', '~> 2.8'
 end
 
